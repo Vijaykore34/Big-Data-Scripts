@@ -1,0 +1,87 @@
+# COMMAN TASK ON MULITPLE SERVER ==> AMI
+1.webserver
+2.ubuntu 20
+3.key
+4.ssh http
+5.8gb
+6.luch instance
+
+# go in terminal
+1.connect ==> ssh -i vijaykey.pem ubuntu@public ip
+2.sudo apt update
+
+#install the apache webserver packge
+1.sudo apt install apache2 -y
+2.sudo service apache2 status
+3.cd /var/www/html
+4.rm index.html
+5.sudo nano index.html ==> this is my custom code
+6.copy paste the ip in tab  
+
+# go aws 
+1.select isntance   ==> image & tamplates ==> create image
+2.web server image
+3.create image
+
+# go in ami
+first create snapshot then it will create ami
+select ami 
+1.luach instance from ami
+2.same
+3.lauch instance
+4.copy paste the public ip ===> this is our custom code
+
+# aws cli 
+go in terminal ==> old terminal
+1.sudo apt update
+2.sudo apt install awscli -y
+3.aws help ===> if it works then ok
+4.aws s3 ls ==> see bukets
+
+# aws cretials
+1.crete access keys ==> tick
+2.download csv
+3.in terminal ==> aws configure
+copy past pass
+enter 
+enter
+3.aws s3 ls
+4.aws s3 ls copy paste the bucket name ==> it will show bucket containts
+5.ls
+6.nano abc ===> put any containt
+7.aws s3 cp abc s3://name of bukect/
+5.check in aws s3 buckets abc file available or not
+6.whatis ll
+7.ll
+8.ls -al
+9.cd .aws
+9.ll
+10.cat credentials
+
+
+# go in aws 
+1.terminate the instance named ===> webserver
+2. delete the key credentials ==> action deactivate ==> delete
+3.
+
+ # iam roles
+ aws service
+ 1.cretae role
+ 2.select ==> aws service ==> ec2
+ 3.add permission ==> s3 full access
+ 4.name for the role s3 access
+ 5 create the role
+ 6.go in instance ===> select the isntance named from ami ==> actin secuirty
+ 7.modfy iam roles
+  
+# connect in terminal
+1.ssh -i
+2.sudo apt update
+3.sudo apt install awscli -y
+4.aws help
+5.aws s3 ls
+
+
+
+
+
