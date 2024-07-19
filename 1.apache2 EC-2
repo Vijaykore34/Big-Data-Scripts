@@ -1,0 +1,65 @@
+EC-2 
+1.CREATE INSTANCE NAMED WEBSERVER
+2.GO IN TERMINAL 
+  A.ssh -i vijaykey.pem ubuntu@public ip 
+  B.sudo apt update 
+  c.sudo apt install apache2
+  d.sudo service apache2 status
+3.copy paste the public ip in new tab
+4.go interminal 
+ a.cd /var/www/html
+ b.ls
+ c.sudo rm index.html
+ d.sudo nano index.html ===> hi hello  this is our custom code
+5.refresh the apache2 tab
+6.CREATE THE NEW INSTANCE WITH NAME BOOTSTRAP 
+ A.COPY PAST THE #!bin/bash file data
+ B.LAUCH THE INSTANCE
+ C.COPY PASTE THE PUBLIC IP IN TAB
+
+6.GO IN TERMINAL
+ A.sudo lsblk ===>check the available disk 
+ b.go in volume 
+   1.gp
+   2.10 gb 
+  select availability zone
+ create volume ==> New disk
+7.select new ==> attach volume ===> select webserver ==> /dev/sdf ==> attache volume
+8.go terminal 
+1.sudo lsblk
+2.sudo file -s /dev/xvdf ==> it will show data 
+make file system
+sudo mkfs -t ext4 /dev/xvdf
+sudo file -s /dev/xvdf
+ it will show linux --> revise
+
+sudo file -s /dev/xvdf
+
+9.create directory
+1.sudo mkdir /fileserver
+2.sudo mount /dev/xvdf /fileserver
+3.sudo lsblk ==> xvdf --> disk /fileserver
+4 cd /fileserver
+5 ls--> lost + found
+6.sudo rm -rf lost + found 
+7. ls
+8. sudo nano abc ===> hello new disk attached successfully 
+9. cd
+go in aws create snapshot 
+go in volumes select the volume action create snapshot
+1.sudo lsblk
+2.sudo umount /dev/xvdf
+3.go in aws volumes action detach & delete
+4.sudo lsblk
+5 delete volume
+6.cd /fileserver ==> ls
+go in snap shot actions create volume from snapshot
+1.magnatic
+2.size 10 gb create voulme
+3.action attache volume ==> select webserver ==> /dev/sdf
+4. sudo lsblk == > it will show 10 g disk
+5. sudo file   -s /dev/xvdf ==>it will show linux rev 1.0
+6. sudo mount /dev/xvdf /fileserver
+7.cd /fileserver
+8.ls
+9.cat abc ==> it will show new disk attached successfully
